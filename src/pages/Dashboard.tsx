@@ -4,6 +4,7 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { AdminSidebar } from "@/components/AdminSidebar"
 import { VolunteerSidebar } from "@/components/VolunteerSidebar"
 import { DashboardHeader } from "@/components/DashboardHeader"
+import { TermsManagement } from "@/components/TermsManagement"
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -26,8 +27,16 @@ const Dashboard = () => {
           <DashboardHeader userName={userName} profileImage={profileImage} />
           <main className="p-4">
             <Routes>
+              <Route
+                path="/terms"
+                element={
+                  <div>
+                    {isAdmin && <TermsManagement />}
+                    <div>Lista de Termos</div>
+                  </div>
+                }
+              />
               <Route path="/volunteers" element={<div>Lista de Voluntários</div>} />
-              <Route path="/terms" element={<div>Lista de Termos</div>} />
               <Route index element={<div>Bem-vindo ao Dashboard</div>} />
             </Routes>
           </main>
