@@ -30,7 +30,7 @@ export function AdminSidebar() {
   const isMobile = useIsMobile()
 
   return (
-    <Sidebar defaultCollapsed={isMobile} className="border-r">
+    <Sidebar className="border-r">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Menu</SidebarGroupLabel>

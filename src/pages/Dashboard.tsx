@@ -23,7 +23,7 @@ const Dashboard = () => {
   }, [navigate])
 
   return (
-    <SidebarProvider defaultCollapsed={isMobile}>
+    <SidebarProvider>
       <div className="min-h-screen flex w-full">
         {isAdmin ? <AdminSidebar /> : <VolunteerSidebar />}
         <div className="flex-1 flex flex-col">
