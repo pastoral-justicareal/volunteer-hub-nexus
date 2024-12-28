@@ -13,7 +13,7 @@ const Dashboard = () => {
   const userName = localStorage.getItem("userName") || "Usuário"
   const profileImage = localStorage.getItem("profileImage")
   const isMobile = useIsMobile()
-  const [isSidebarOpen, setIsSidebarOpen] = useState(!isMobile)
+  const [openMobile, setOpenMobile] = useState(false)
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("isAuthenticated")
@@ -23,14 +23,14 @@ const Dashboard = () => {
   }, [navigate])
 
   return (
-    <SidebarProvider>
+    <SidebarProvider open={!isMobile} onOpenChange={setOpenMobile}>
       <div className="min-h-screen flex w-full">
         {isAdmin ? <AdminSidebar /> : <VolunteerSidebar />}
         <div className="flex-1 flex flex-col">
           <DashboardHeader 
             userName={userName} 
             profileImage={profileImage}
-            onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            onMenuClick={() => setOpenMobile(!openMobile)}
             isMobile={isMobile}
           />
           <main className="p-4 flex-1 overflow-auto">

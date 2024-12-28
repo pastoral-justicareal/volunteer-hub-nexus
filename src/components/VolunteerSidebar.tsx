@@ -24,6 +24,10 @@ export function VolunteerSidebar() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
 
+  const handleNavigation = (path: string) => {
+    navigate(path)
+  }
+
   return (
     <Sidebar className="border-r">
       <SidebarContent>
@@ -33,7 +37,7 @@ export function VolunteerSidebar() {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton onClick={() => navigate(item.path)}>
+                  <SidebarMenuButton onClick={() => handleNavigation(item.path)}>
                     <item.icon className="w-4 h-4" />
                     <span>{item.title}</span>
                   </SidebarMenuButton>
