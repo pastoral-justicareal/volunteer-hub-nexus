@@ -10,6 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { useNavigate } from "react-router-dom"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const menuItems = [
   {
@@ -26,9 +27,10 @@ const menuItems = [
 
 export function AdminSidebar() {
   const navigate = useNavigate()
+  const isMobile = useIsMobile()
 
   return (
-    <Sidebar>
+    <Sidebar defaultCollapsed={isMobile} className="border-r">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Menu</SidebarGroupLabel>
